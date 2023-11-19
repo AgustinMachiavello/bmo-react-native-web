@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import AudioTrack from "./components/AudioTrack";
 
+import soundOn from "./icons/sound-on.png";
+import soundOff from "./icons/sound-off.png";
 import song1 from "../../songs/i-dont-want-to-set-the-world-on-fire.mp3";
 
 const SONG_LIST = [
@@ -13,16 +15,46 @@ const SONG_LIST = [
 
 const MusicPlayer = () => {
   const [selectedSongId, setSelectedSongId] = useState();
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     setSelectedSongId(SONG_LIST[0].file);
   }, []);
 
   return (
-    <View>
-      <AudioTrack songId={selectedSongId} autoPlay={true}></AudioTrack>
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image
+          source={isPlaying ? soundOn : soundOff}
+          style={styles.imageWrapper}
+        ></Image>
+      </View>
+      <AudioTrack
+        songId={selectedSongId}
+        autoPlay={isPlaying}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      ></AudioTrack>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  imageContainer: {
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  imageWrapper: {
+    flex: 1,
+    height: "100px",
+    width: "100px"
+  }
+});
 
 export default MusicPlayer;
