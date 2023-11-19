@@ -8,7 +8,7 @@ const BMO = () => {
   return (
     <View style={styles.container}>
       <View style={styles.faceContainer}>
-        <Face />
+        <Face mode="music" />
       </View>
       <Controls />
     </View>
