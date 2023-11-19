@@ -30,12 +30,7 @@ const MusicPlayer = () => {
           style={styles.imageWrapper}
         ></Image>
       </View>
-      <AudioTrack
-        songId={selectedSongId}
-        autoPlay={isPlaying}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-      ></AudioTrack>
+      <AudioTrack audioId={selectedSongId}></AudioTrack>
     </View>
   );
 };

@@ -1,15 +1,35 @@
-import React from "react";
-import ReactAudioPlayer from "react-audio-player";
+import React, { useEffect, useState } from "react";
+import { View, Button } from "react-native";
+import { Audio } from "expo-av";
 
-const AudioTrack = ({ songId, autoPlay, onPlay, onPause }) => {
+const BASE_SOUND_PATH = "../../../../songs";
+
+const AudioTrack = ({ audioId }) => {
+  const [soundLoaded, setSoundLoaded] = useState(false);
+
+  const soundObject = new Audio.Sound();
+
+  const playSound = async () => {
+    if (!soundLoaded) {
+      try {
+        await soundObject.loadAsync(audioId);
+        setSoundLoaded(true);
+      } catch (error) {
+        console.error("Error loading track:", error);
+      }
+    }
+
+    try {
+      await soundObject.playAsync();
+    } catch (error) {
+      console.error("Error at playing track:", error);
+    }
+  };
+
   return (
-    <ReactAudioPlayer
-      src={songId}
-      autoPlay={autoPlay}
-      controls
-      onPlay={onPlay}
-      onPause={onPause}
-    />
+    <View>
+      <Button title="Reproducir" onPress={() => playSound()} />
+    </View>
   );
 };
 
