@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   eye: {
     width: 40,
     height: 40,
-    borderRadius: "50%",
+    borderRadius: 40,
     backgroundColor: COLORS.black
   }
 });

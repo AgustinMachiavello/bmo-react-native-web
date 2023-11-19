@@ -18,7 +18,8 @@ const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    setSelectedSongId(SONG_LIST[0].file);
+    const song = SONG_LIST[0];
+    setSelectedSongId(song.file);
   }, []);
 
   return (

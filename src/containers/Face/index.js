@@ -6,7 +6,7 @@ import Mouth from "./components/Mouth";
 import MusicPlayer from "../MusicPlayer";
 
 const Face = ({ mode }) => {
-  const [selectedModeComponent, setSelectedModeComponent] = useState(mode);
+  const [selectedModeComponent, setSelectedModeComponent] = useState();
 
   const ExpressionMode = () => (
     <View style={styles.eyesAndMouthContainer}>
@@ -41,8 +41,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.secondary,
-    borderRadius: "8px",
-    border: `4px solid ${COLORS.black}`
+    borderRadius: 8,
+    borderWidth: 4,
+    borderStyle: "solid",
+    borderColor: COLORS.black
   },
   eyesAndMouthContainer: {
     flex: 1

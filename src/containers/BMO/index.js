@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   faceContainer: {
     flex: 1,
-    padding: "20px"
+    padding: 20
   }
 });
 export default BMO;
