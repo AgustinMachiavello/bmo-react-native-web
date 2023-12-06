@@ -6,8 +6,6 @@ import Mouth from "./components/Mouth";
 import MusicPlayer from "../MusicPlayer";
 
 const Face = ({ mode }) => {
-  const [selectedModeComponent, setSelectedModeComponent] = useState();
-
   const ExpressionMode = () => (
     <View style={styles.eyesAndMouthContainer}>
       <View style={styles.eyesContainer}>
@@ -21,18 +19,12 @@ const Face = ({ mode }) => {
   );
   const MusicPlayerMode = () => <MusicPlayer></MusicPlayer>;
 
-  useEffect(() => {
-    switch (mode) {
-      case "music": {
-        setSelectedModeComponent(MusicPlayerMode);
-        break;
-      }
-      default: {
-        setSelectedModeComponent(ExpressionMode);
-        break;
-      }
-    }
-  }, [mode]);
+  const selectedModeComponent =
+    mode === "music" ? (
+      <MusicPlayerMode></MusicPlayerMode>
+    ) : (
+      <ExpressionMode></ExpressionMode>
+    );
 
   return <View style={styles.container}>{selectedModeComponent}</View>;
 };

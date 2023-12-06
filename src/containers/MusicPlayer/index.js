@@ -4,7 +4,7 @@ import AudioTrack from "./components/AudioTrack";
 
 import soundOn from "./icons/sound-on.png";
 import soundOff from "./icons/sound-off.png";
-import song1 from "../../songs/i-dont-want-to-set-the-world-on-fire.mp3";
+import song1 from "../../../assets/songs/i-dont-want-to-set-the-world-on-fire.mp3";
 
 const SONG_LIST = [
   {
@@ -14,12 +14,14 @@ const SONG_LIST = [
 ];
 
 const MusicPlayer = () => {
-  const [selectedSongId, setSelectedSongId] = useState();
+  // States
+  const [selectedSongFile, setSelectedSongFile] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // Effects
   useEffect(() => {
     const song = SONG_LIST[0];
-    setSelectedSongId(song.file);
+    setSelectedSongFile(song.file);
   }, []);
 
   return (
@@ -30,7 +32,10 @@ const MusicPlayer = () => {
           style={styles.imageWrapper}
         ></Image>
       </View>
-      <AudioTrack audioId={selectedSongId}></AudioTrack>
+      {/* <AudioTrack
+        audioFile={selectedSongFile}
+        onStart={() => setIsPlaying(true)}
+      ></AudioTrack> */}
     </View>
   );
 };

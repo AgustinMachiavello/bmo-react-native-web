@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
+
 import Face from "../Face";
 import Controls from "../Controls";
 import COLORS from "../../styles/colors";
 
 const BMO = () => {
+  // States
+  const [selectedMode, setSelectedMode] = useState("music");
+
   return (
     <View style={styles.container}>
       <View style={styles.faceContainer}>
-        <Face mode="music" />
+        <Face mode={selectedMode} />
       </View>
       <Controls />
     </View>
