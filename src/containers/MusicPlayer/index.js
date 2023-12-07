@@ -5,6 +5,7 @@ import AudioTrack from "./components/AudioTrack";
 import soundOn from "./icons/sound-on.png";
 import soundOff from "./icons/sound-off.png";
 import song1 from "../../../assets/songs/i-dont-want-to-set-the-world-on-fire.mp3";
+import FileExplorer from "../../components/FileExplorer";
 
 const SONG_LIST = [
   {
@@ -18,6 +19,12 @@ const MusicPlayer = () => {
   const [selectedSongFile, setSelectedSongFile] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // Data
+  const adaptedSongList = SONG_LIST.map((song) => ({
+    id: song.id,
+    label: song.id
+  }));
+
   // Effects
   useEffect(() => {
     const song = SONG_LIST[0];
@@ -26,6 +33,7 @@ const MusicPlayer = () => {
 
   return (
     <View style={styles.container}>
+      <FileExplorer itemList={adaptedSongList}></FileExplorer>
       <View style={styles.imageContainer}>
         <Image
           source={isPlaying ? soundOn : soundOff}
