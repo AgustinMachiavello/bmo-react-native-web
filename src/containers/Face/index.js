@@ -36,8 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 4,
     borderStyle: "solid",
-    borderColor: COLORS.black,
-    aspectRatio: 3
+    borderColor: COLORS.black
   },
   eyesAndMouthContainer: {
     flex: 1

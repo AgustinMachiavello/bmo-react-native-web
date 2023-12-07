@@ -119,10 +119,12 @@ const MusicPlayer = () => {
           </View> */}
       </Row>
 
-      <AudioTrack
-        audioFile={selectedSongFile}
-        onStart={() => setIsPlaying(true)}
-      ></AudioTrack>
+      {selectedSongFile && (
+        <AudioTrack
+          audioFile={selectedSongFile}
+          onStart={() => setIsPlaying(true)}
+        ></AudioTrack>
+      )}
     </View>
   );
 };

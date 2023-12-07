@@ -18,12 +18,12 @@ const Controls = () => {
             <Column>
               <Button buttonType="C"></Button>
             </Column>
-            <Column>2</Column>
-            <Column>3</Column>
+            <Column></Column>
+            <Column></Column>
           </Row>
           <Row>
-            <Column>4</Column>
-            <Column>5</Column>
+            <Column></Column>
+            <Column></Column>
             <Column>
               <Button buttonType="B"></Button>
             </Column>
@@ -32,8 +32,8 @@ const Controls = () => {
             <Column>
               <Button buttonType="A"></Button>
             </Column>
-            <Column>8</Column>
-            <Column>9</Column>
+            <Column></Column>
+            <Column></Column>
           </Row>
         </View>
       </View>

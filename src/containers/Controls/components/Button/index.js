@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 const buttonTypeAStyles = StyleSheet.create({
   container: {
     width: "100%",
-    borderRadius: "50%",
+    borderRadius: 1,
     aspectRatio: 1,
     borderWidth: 3,
     backgroundColor: COLORS.red
@@ -42,7 +42,7 @@ const buttonTypeAStyles = StyleSheet.create({
 const buttonTypeBStyles = StyleSheet.create({
   container: {
     width: "70%",
-    borderRadius: "50%",
+    borderRadius: 1,
     aspectRatio: 1,
     borderWidth: 3,
     backgroundColor: COLORS.green
