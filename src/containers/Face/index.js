@@ -26,7 +26,7 @@ const Face = ({ mode }) => {
       <ExpressionMode></ExpressionMode>
     );
 
-  return <View style={styles.container}>{selectedModeComponent}</View>;
+  return <View style={[styles.container]}>{selectedModeComponent}</View>;
 };
 
 const styles = StyleSheet.create({
@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 4,
     borderStyle: "solid",
-    borderColor: COLORS.black
+    borderColor: COLORS.black,
+    width: "100%"
   },
   eyesAndMouthContainer: {
     flex: 1

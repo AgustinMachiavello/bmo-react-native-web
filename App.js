@@ -11,6 +11,7 @@ import {
 } from "@expo-google-fonts/dotgothic16";
 import BMO from "./src/containers/BMO";
 import COLORS from "./src/styles/colors";
+import DebugPanel from "./src/containers/DebugPanel";
 
 export default function App() {
   // Fonts
