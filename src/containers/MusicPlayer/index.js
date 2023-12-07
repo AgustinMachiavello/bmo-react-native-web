@@ -6,8 +6,79 @@ import soundOn from "./icons/sound-on.png";
 import soundOff from "./icons/sound-off.png";
 import song1 from "../../../assets/songs/i-dont-want-to-set-the-world-on-fire.mp3";
 import FileExplorer from "../../components/FileExplorer";
+import Row from "../../components/Row";
+import Column from "../../components/Column";
 
 const SONG_LIST = [
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
+  {
+    id: "i-dont-want-to-set-the-world-on-fire.mp3",
+    file: song1
+  },
   {
     id: "i-dont-want-to-set-the-world-on-fire.mp3",
     file: song1
@@ -22,37 +93,43 @@ const MusicPlayer = () => {
   // Data
   const adaptedSongList = SONG_LIST.map((song) => ({
     id: song.id,
-    label: song.id
+    label: song.id,
+    data: song
   }));
 
-  // Effects
-  useEffect(() => {
-    const song = SONG_LIST[0];
-    setSelectedSongFile(song.file);
-  }, []);
+  // Handlers
+  const handleSongClick = (song) => {
+    debugger;
+    setSelectedSongFile(song.data.file);
+  };
 
   return (
     <View style={styles.container}>
-      <FileExplorer itemList={adaptedSongList}></FileExplorer>
-      <View style={styles.imageContainer}>
-        <Image
-          source={isPlaying ? soundOn : soundOff}
-          style={styles.imageWrapper}
-        ></Image>
-      </View>
-      {/* <AudioTrack
+      <Row>
+        <FileExplorer
+          itemList={adaptedSongList}
+          onFileClick={handleSongClick}
+        ></FileExplorer>
+
+        {/* <View style={styles.imageContainer}>
+            <Image
+              source={isPlaying ? soundOn : soundOff}
+              style={styles.imageWrapper}
+            ></Image>
+          </View> */}
+      </Row>
+
+      <AudioTrack
         audioFile={selectedSongFile}
         onStart={() => setIsPlaying(true)}
-      ></AudioTrack> */}
+      ></AudioTrack>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    flex: 1
   },
   imageContainer: {
     height: 100,

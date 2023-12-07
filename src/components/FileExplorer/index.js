@@ -1,25 +1,30 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 import FileExplorerItem from "./components/FileExplorerItem";
 
-const FileExplorer = ({ itemList }) => {
+const FileExplorer = ({ itemList, onFileClick }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {itemList.map((item) => (
-        <FileExplorerItem
-          key={item.id}
-          label={item.label}
-          onPress={item.onPress}
-        ></FileExplorerItem>
+        <View style={styles.itemWrapper}>
+          <FileExplorerItem
+            key={item.id}
+            label={item.label}
+            onPress={() => onFileClick(item)}
+          ></FileExplorerItem>
+        </View>
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  itemWrapper: {
+    padding: 8
   }
 });
 
@@ -28,6 +33,7 @@ FileExplorer.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       label: PropTypes.string,
+      data: PropTypes.any,
       onPress: PropTypes.func
     })
   )

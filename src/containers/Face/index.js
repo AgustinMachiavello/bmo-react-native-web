@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React from "react";
+import { View, StyleSheet } from "react-native";
 import COLORS from "../../styles/colors";
 import Eye from "./components/Eye";
 import Mouth from "./components/Mouth";
@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 4,
     borderStyle: "solid",
-    borderColor: COLORS.black
+    borderColor: COLORS.black,
+    aspectRatio: 3
   },
   eyesAndMouthContainer: {
     flex: 1
